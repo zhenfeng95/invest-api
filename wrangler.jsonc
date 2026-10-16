@@ -1,0 +1,24 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "invest-api",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-07-15",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"observability": {
+		"enabled": true
+	},
+	// 本地/生产请用 wrangler secret / .dev.vars 配置敏感项
+	// 本地 Hyperdrive 模拟：在 .env 设 CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE（不能写 .dev.vars）
+	"vars": {
+		"PUBLIC_SITE_URL": "https://zheninvest.com",
+		"CORS_ORIGINS": "https://zheninvest.com,https://admin.zheninvest.com,https://invest-admin.zeninvest.workers.dev,http://localhost:3000,http://localhost:5173,http://localhost:8787"
+	},
+	"hyperdrive": [
+		{
+			"binding": "HYPERDRIVE",
+			"id": "acf8aa40fd9c4958a98e4d612002fcfa"
+		}
+	]
+}
